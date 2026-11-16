@@ -1,0 +1,6 @@
+b4Play end-user license
+
+The b4Play software is licensed under the MIT License included in LICENSE.
+That license governs end-user rights to use, copy, modify, and distribute
+this software, including copies distributed through browser extension stores.
+Third-party services remain subject to their own terms and policies.
