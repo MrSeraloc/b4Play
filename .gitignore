@@ -1,9 +1,9 @@
-.env*
-!.env.example
-data/
-node_modules/
-*.log
 dist/
-work/
-.DS_Store
-Thumbs.db
+downloads/*
+!downloads/b4play-opera-0.4.0.zip
+!downloads/b4play-chrome-0.4.0.zip
+!downloads/SHA256SUMS.txt
+node_modules/
+.env*
+*.log
+*.tmp

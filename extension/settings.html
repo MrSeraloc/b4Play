@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>b4Play · Settings</title><link rel="stylesheet" href="ui.css"></head>
+<body><main><header><strong>b4Play</strong><small>0.4.0 · BETA</small></header><h1 data-text="intro">Context before your next play.</h1><p data-text="setup"></p>
+<form id="preferences">
+<label for="language" data-text="language"></label><select id="language"><option value="auto">Automatic / Automático</option><option value="en">English</option><option value="pt-BR">Português (Brasil)</option></select>
+<label for="provider" data-text="provider"></label><select id="provider"><option value="openrouter">OpenRouter</option><option value="openai">OpenAI</option></select>
+<label for="model" data-text="model"></label><input id="model" required maxlength="160" placeholder="provider/model"><p class="hint" data-text="modelHelp"></p><a id="catalog" href="https://openrouter.ai/models" target="_blank" rel="noopener noreferrer">Model catalog ↗</a>
+<label for="key" data-text="key"></label><input id="key" type="password" autocomplete="off" spellcheck="false" maxlength="2048"><p class="hint" data-text="keyHelp"></p>
+<label class="check"><input id="remember" type="checkbox"><span data-text="remember"></span></label>
+<label class="check"><input id="hover" type="checkbox"><span data-text="hover"></span></label>
+<label class="check disclosure"><input id="consent" type="checkbox" required><span data-text="consent"></span></label>
+<button type="submit" data-text="save"></button><p id="status" role="status"></p></form>
+<details><summary data-text="importTitle"></summary><form id="import-form"><label for="url" data-text="url"></label><input id="url" type="url" required placeholder="https://www.youtube.com/watch?v=…"><label for="file" data-text="file"></label><input id="file" type="file" accept=".txt,text/plain" required><button type="submit" data-text="import"></button><p id="import-status" role="status"></p><p id="summary"></p><button id="copy" type="button" hidden data-text="copy"></button></form></details>
+<footer><a href="HELP.html" target="_blank" data-text="privacy"></a><button type="button" class="secondary" id="forget" data-text="forget"></button></footer>
+</main><script type="module" src="settings.js"></script></body></html>

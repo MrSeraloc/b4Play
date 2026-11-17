@@ -1,75 +1,43 @@
-# b4Play
+# b4Play 0.4.0 — standalone
 
-**English** · [Português (Brasil)](README.pt-BR.md)
+**English** · [Português](README.pt-BR.md)
 
-Context before your next play. b4Play summarizes YouTube transcripts in **up to 200 words**, on thumbnail hover or from the toolbar button.
+YouTube transcript summaries in up to 200 words, using your OpenRouter or OpenAI API key. This rebuild removes the local Node.js service, extra token and .env files. Users only need a browser.
 
-> **Security notice:** Microsoft Defender has detected files in version 0.3.0 as `Trojan:Script/Ulthar.A!ml`. The cause is still under investigation. Do not install or distribute these packages until the detection is resolved.
+> **0.3.0 is deprecated and unsupported.** Defender flagged its files. Do not install or redistribute its packages. Version 0.4.0 replaces it as the current beta. See [migration and deprecation details](DEPRECATED.md).
 
-## Downloads — beta 0.3.0
+## Download 0.4.0 beta
 
-| Browser | Download |
+| Browser | Prepared package |
 | --- | --- |
-| Opera | **[Click here to download the Opera ZIP](https://github.com/MrSeraloc/b4Play/raw/refs/heads/main/downloads/b4play-opera-0.3.0.zip)** |
-| Chrome / Chromium | **[Click here to download the Chrome ZIP](https://github.com/MrSeraloc/b4Play/raw/refs/heads/main/downloads/b4play-chrome-0.3.0.zip)** |
-| Required local service | **[Download the local service and source](https://github.com/MrSeraloc/b4Play/raw/refs/heads/main/downloads/b4play-service-0.3.0.zip)** |
+| Opera | **[Click here to download the Opera ZIP](https://github.com/MrSeraloc/b4Play/raw/refs/heads/main/downloads/b4play-opera-0.4.0.zip)** |
+| Chrome / Chromium | **[Click here to download the Chrome ZIP](https://github.com/MrSeraloc/b4Play/raw/refs/heads/main/downloads/b4play-chrome-0.4.0.zip)** |
 
-[SHA-256 checksums](downloads/SHA256SUMS.txt) · [MIT license](LICENSE) · [Privacy](docs/PRIVACY.md) · [Support](https://github.com/MrSeraloc/b4Play/issues)
+Only one download is needed. [SHA-256](downloads/SHA256SUMS.txt) · [Privacy](PRIVACY.md) · [MIT license](LICENSE) · [Support](https://github.com/MrSeraloc/b4Play/issues) · [Changelog](CHANGELOG.md)
 
-**This is a developer-mode beta, not an approved store listing.** You need Node.js 22+, a running local service, and your own OpenAI or OpenRouter API key. API use can cost money. There is no developer-operated backend, advertising, or telemetry.
+## Three-step setup
 
-## Install
+1. Extract `downloads/b4play-opera-0.4.0.zip` or `downloads/b4play-chrome-0.4.0.zip` into a permanent folder. Choose one browser package.
+2. Open `opera://extensions` or `chrome://extensions`, enable **Developer mode**, choose **Load unpacked**, and select the folder with **manifest.json**.
+3. Settings open automatically. Choose your provider, enter your API key and exact Chat Completions model ID, read/accept the disclosure and **Save**. Allow access to your selected provider. No Node.js or other application is needed.
 
-Once the alert above is resolved, you will need **two files**: your browser ZIP and the local service ZIP. The service runs on your computer and must remain open while you use the extension. The steps below describe this beta's manual installation.
+Reload YouTube, open a standard video and click b4Play → **Summarize current video**. Optionally enable thumbnail hover in settings. Hover waits 1.5 seconds and may incur API charges. A temporary Tactiq tab supplies the transcript; if it fails, import a .txt in settings.
 
-1. Download and extract the ZIP for your browser and the local service ZIP. Keep them in permanent folders.
-2. In the extracted service folder, run `node --env-file-if-exists=.env server/index.mjs`. Windows users can also run `iniciar.ps1`. No package installation is required.
-3. Open `opera://extensions` or `chrome://extensions`, turn on **Developer mode**, choose **Load unpacked**, and select the extracted browser ZIP folder. `manifest.json` is directly inside it.
-4. Open b4Play settings. Copy the token from the service's `data/service-token.txt` into **Local service token**.
-5. Choose **Automatic**, **English**, or **Português (Brasil)**. Read and accept the data-processing disclosure. Enable hover summaries if wanted, then choose **Save and connect**.
-6. Under **Choose your AI provider**, select OpenAI or OpenRouter, enter your provider API key and exact model ID, and save. The local token and the provider API key are different credentials.
-7. Reload YouTube. Hover over a standard video thumbnail or open a video and click the b4Play toolbar button.
+By default the key lasts until the browser closes. Remember optionally stores it unencrypted locally. **Delete settings, key and summaries** clears extension data and revokes provider access.
 
-The same local service works with both browser packages. Keep it running on `127.0.0.1:8765`; do not start two copies. Each browser extension stores its own connection settings and consent.
+## Security and limits
 
-## Languages and behavior
-
-![b4Play English summary popup with fictional demo data](docs/images/demo-en.jpg)
-
-*Development demonstration with fictional data; this is not a real Opera review screenshot.*
-
-The interface and summaries support English and Brazilian Portuguese. Automatic mode follows the browser language; other browser languages fall back to English. The selected language is sent to the AI prompt. Cached summaries are kept separate by language; changing language clears the previous cache.
-
-After the hover delay, b4Play opens a Tactiq result tab in the background, waits for its transcript, then closes that tab. It sends the transcript and video title through the authenticated local service to your selected AI provider. Long transcripts are summarized in sections before the final synthesis. The hard output limit is 200 whitespace-separated words.
-
-Use **Check key and model** for a metadata-only credential check. It generates no text. Imported `.txt` transcripts provide a manual path when Tactiq cannot return text.
-
-## Known limitations
-
-- Tactiq is a third-party website, not a supported transcript API integration. Page changes, missing captions, verification failures, or restrictions can stop automatic retrieval. A 403 was observed during the initial investigation. Do not expect every video to work.
-- Tactiq's documentation limits its generator to standard English-language videos. An English/Portuguese interface does not add Portuguese transcription support. Shorts are not supported.
-- Summaries cover transcript content; they do not analyze visual-only events, charts, or images.
-- The current version requires the local Node.js service. It is not a one-click standalone install.
-- API keys are stored as local plaintext in `data/ai-config.json` or `.env`. Keep that data private. No user keys or runtime data are distributed in these downloads.
-- Store approval and cross-platform browser testing have not been completed. See [Opera readiness](docs/OPERA-READINESS.md).
+- Defender flagged 0.3.0. This is a new implementation and architecture, not an antivirus certification or guarantee against alerts. Keep blocked files blocked. No Defender exclusions or protection changes are used.
+- No credentials are migrated from 0.3.0. Disable/remove the old extension to avoid duplicate work/charges. Close the old companion's window when no longer needed. The old source remains in Git history; its ZIPs and companion service have been removed from the current branch.
+- Tactiq is a third-party website, not a supported API. Verification, changes, missing captions and unsupported video languages can prevent retrieval. Portuguese UI does not guarantee Portuguese transcription. Shorts are unsupported.
+- AI receives title/transcript and can charge for usage. Long transcripts require additional section requests. Failed requests are not retried automatically. Summaries may contain mistakes and do not analyze visual-only content.
+- Keys and jobs are restricted to trusted extension contexts. Content scripts never receive the API key. No telemetry or developer backend. See [privacy](PRIVACY.md). Offline help is bundled in the extension.
+- This is a manually installed beta. Real Opera/Chrome/provider and cross-platform tests and store approval remain necessary.
 
 ## Development
 
-```sh
-npm run build
-npm test
-npm run package
-npm start
-```
+Node.js 22+: `npm test`, `npm run build`. Windows packaging: `npm run package`, using the standard Windows ZIP library, an explicit file list and SHA-256. Development tools are not needed by users. Browser ZIPs contain extension files, help and MIT license with manifest at root, no nested ZIPs, installers, shell scripts or local service.
 
-No npm dependencies are required. `extension/` is the shared browser source. The build creates `dist/opera/` and `dist/chrome/`; packaging writes the three ZIPs to `downloads/` with reproducible contents and checksums. The Opera package has Opera-sized toolbar icons. The Chrome package declares its minimum Chromium version. Both contain only extension runtime files, locale catalogs, icons, and the MIT end-user license.
+`extension/` is the whole application, `tests/` mocks providers/browser APIs without real keys or charges, and `scripts/` holds development tooling. Both browser packages are maintained in this repository. GitHub's automatic **Download ZIP** downloads the source; use the prepared browser downloads above to install.
 
-`server/` is the common local companion. `shared/` contains validation and translations. Tests use fake provider responses, not real API keys or paid inference.
-
-## Publication
-
-This repository hosts both editions. The download buttons above point directly to versioned ZIPs in `downloads/`, so downloading does not require a GitHub account. These files are different from GitHub's automatic **Download ZIP**, which downloads the source tree.
-
-For official catalog distribution, use the browser ZIP only. Prepare the listing, privacy URL, support URL, screenshots, and reviewer setup instructions from [the publication guide](docs/PUBLISHING.md). The local service and remaining verification work must be clearly disclosed. The project has not been submitted to either store.
-
-Copyright © 2026 MrSeraloc. Distributed under the MIT license. b4Play is an independent project and is not affiliated with Opera, Google, YouTube, Tactiq, OpenAI, or OpenRouter.
+The local Defender scan of the 0.4.0 project and packages reported **no threats found**. The 13 automated tests passed using mocked AI/browser APIs. These results do not guarantee future antivirus verdicts, provider availability or store approval. Read [validation details and remaining checks](VALIDATION.md).
