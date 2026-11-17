@@ -1,5 +1,17 @@
 # Changelog / Mudanças
 
+## 0.4.1 beta — 2026-11-16
+
+- Fix hover getting stuck when the pointer leaves before the delay and re-enters the same thumbnail.
+- Recognize image links without depending on one fixed thumbnail ID/class; validate the YouTube host.
+- Read public hover preferences on entry and refresh on window focus, so enabling/disabling hover affects already-open tabs.
+- Keep child/overlay transitions within the same thumbnail from resetting the delay; add keyboard focus support and a short grace period for entering the popup.
+- Add seven real-browser DOM regression scenarios with mocked extension messages (no paid API requests).
+
+### Português
+
+Corrigido o hover que travava ao sair e voltar à mesma miniatura antes de completar a espera. A detecção aceita miniaturas com imagem sem depender de um único ID/classe. As preferências são consultadas ao entrar na miniatura, e o foco do teclado também funciona. Foram adicionados sete cenários de regressão em DOM real de navegador, sem chamadas de IA.
+
 ## 0.4.0 beta — 2026-11-16
 
 - Browser-only rebuild for Opera and Chrome. One ZIP per browser; no local service, Node.js, .env or local token required by users.

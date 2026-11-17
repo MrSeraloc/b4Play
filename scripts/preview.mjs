@@ -3,10 +3,16 @@ import http from 'node:http';
 import {readFile} from 'node:fs/promises';
 const base = new URL('../extension/', import.meta.url);
 const allowed = ['settings.html', 'settings.js', 'panel.html', 'panel.js', 'strings.js', 'core.js', 'ui.css', 'HELP.html'];
+const fixtures = {'/hover-tests': '../tests/hover-browser.html', '/tests/hover-browser.js': '../tests/hover-browser.js', '/extension/youtube.js': 'youtube.js'};
 const mock = `let config={provider:'openrouter',model:'',language:'auto',locale:'en',keySet:false,consent:false};
 globalThis.chrome={i18n:{getUILanguage:()=> 'en'},permissions:{request:async()=>true},tabs:{query:async()=>[{url:'https://www.youtube.com/watch?v=abcdefghijk',title:'Example video / Vídeo de exemplo'}]},runtime:{openOptionsPage:async()=>{location.href='/settings.html'},sendMessage:async m=>{if(m.type==='SETTINGS')return config;if(m.type==='SAVE'){config={...m,key:undefined,keySet:true};return {ok:true}}if(m.type==='FORGET'){config={provider:'openrouter',model:'',language:'auto',locale:'en'};return {ok:true}}if(m.type==='START'||m.type==='STATUS')return {id:'demo',state:'ready',summary:'Demonstração com dados fictícios. Nenhum pedido de IA foi enviado.'};return {ok:true}}}};`;
 http.createServer(async (req, res) => {
-  const name = new URL(req.url, 'http://127.0.0.1').pathname.slice(1) || 'settings.html';
+  const path = new URL(req.url, 'http://127.0.0.1').pathname;
+  if (Object.hasOwn(fixtures, path)) {
+    try { const body = await readFile(new URL(fixtures[path], base)); res.writeHead(200, {'Content-Type': path.endsWith('.js') ? 'text/javascript' : 'text/html'}); res.end(body); }
+    catch { res.writeHead(500); res.end('Fixture error'); } return;
+  }
+  const name = path.slice(1) || 'settings.html';
   if (name === 'mock.js') { res.writeHead(200, {'Content-Type': 'text/javascript'}); res.end(mock); return; }
   if (!allowed.includes(name)) { res.writeHead(404); res.end(); return; }
   try {

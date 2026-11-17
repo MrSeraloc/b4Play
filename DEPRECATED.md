@@ -2,8 +2,9 @@
 
 | Version / Versão | Status | Replacement / Substituição |
 | --- | --- | --- |
-| **0.3.0** | **DEPRECATED — unsupported / obsoleta, sem suporte** (2026-11-16) | **0.4.0 beta** |
-| 0.4.0 | Current beta / beta atual | — |
+| **0.3.0** | **DEPRECATED — unsupported / obsoleta, sem suporte** (2026-11-16) | **0.4.1 beta** |
+| 0.4.0 | Superseded: hover fix / substituída: correção do hover | 0.4.1 beta |
+| 0.4.1 | Current beta / beta atual | — |
 
 ## Português
 
@@ -17,7 +18,7 @@ Os ZIPs 0.3.0 e o serviço local foram retirados da branch atual e dos botões d
 
 1. Desative/remova a extensão antiga em `opera://extensions` ou `chrome://extensions`.
 2. Se o serviço antigo estiver aberto, encerre sua janela quando não precisar mais dele.
-3. Baixe o ZIP **0.4.0** do seu navegador pelo [README em português](README.pt-BR.md), extraia em uma pasta permanente e carregue a pasta com `manifest.json`.
+3. Baixe o ZIP **0.4.1** do seu navegador pelo [README em português](README.pt-BR.md), extraia em uma pasta permanente e carregue a pasta com `manifest.json`.
 4. Configure sua chave e modelo novamente. As credenciais e o cache antigo não são importados. Não confunda o antigo token local com uma chave OpenRouter/OpenAI.
 
 ## English
@@ -32,5 +33,5 @@ Old ZIPs and the companion have been removed from the current branch and downloa
 
 1. Disable/remove the old extension in your browser's extensions page.
 2. Close the old local service window when no longer needed.
-3. Download your **0.4.0** browser ZIP from the [README](README.md), extract to a permanent folder and load the folder containing `manifest.json`.
+3. Download your **0.4.1** browser ZIP from the [README](README.md), extract to a permanent folder and load the folder containing `manifest.json`.
 4. Enter your provider key and model again. Old credentials/cache are not imported. The old local token is not an OpenRouter/OpenAI API key.

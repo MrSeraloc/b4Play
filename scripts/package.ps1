@@ -7,7 +7,7 @@ New-Item -ItemType Directory -Path $downloadDirectory -Force | Out-Null
 foreach ($browserName in @('opera', 'chrome')) {
     $sourceDirectory = Join-Path $projectRoot ('dist\' + $browserName)
     $fileNames = Get-Content -LiteralPath (Join-Path $projectRoot ('dist\' + $browserName + '-files.json')) -Raw | ConvertFrom-Json
-    $archivePath = Join-Path $downloadDirectory ('b4play-' + $browserName + '-0.4.0.zip')
+    $archivePath = Join-Path $downloadDirectory ('b4play-' + $browserName + '-0.4.1.zip')
     $temporaryPath = $archivePath + '.tmp'
     $archiveStream = [IO.File]::Open($temporaryPath, [IO.FileMode]::Create)
     $archive = [IO.Compression.ZipArchive]::new($archiveStream, [IO.Compression.ZipArchiveMode]::Create)

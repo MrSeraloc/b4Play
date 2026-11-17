@@ -1,4 +1,4 @@
-# Privacidade — b4Play 0.4.0
+# Privacidade — b4Play 0.4.1
 
 [English](PRIVACY.md) · Atualizada em 16/11/2026
 
