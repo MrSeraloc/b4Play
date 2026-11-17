@@ -4,20 +4,22 @@
 
 Resumo de vídeos do YouTube em 150–250, 300–500 ou 500–750 palavras, com sua chave OpenRouter ou OpenAI. Esta reconstrução elimina o serviço Node.js, o token local, os arquivos .env e a necessidade de manter um programa aberto. O computador só precisa do navegador para usar a extensão.
 
-> **A 0.3.0 está deprecated (obsoleta) e sem suporte.** Seus arquivos foram sinalizados pelo Defender. Não instale nem redistribua os pacotes antigos. A 0.4.3 a substitui como beta atual. Veja [descontinuação e migração](DEPRECATED.md).
+> **INSTALAÇÃO SUSPENSA — alerta confirmado também na 0.4.3.** O Defender detectou `Trojan:Script/Ulthar.A!ml` nos dois ZIPs, apontando `panel.html` e `core.js`. Não instale, não redistribua nem libere os arquivos sinalizados. A 0.3.0 continua deprecated. Não há versão atualmente liberada como segura. Veja [o relatório da revisão](REVIEW-0.4.3.md).
 
-## Baixar a beta 0.4.3
+## Distribuição suspensa
 
-> **Detecção em investigação:** a 0.4.1 também foi sinalizada pelo Defender, inclusive em nova verificação local. A 0.4.3 melhora a segurança e a acessibilidade do popup e passou na verificação local inicial, mas não há confirmação da Microsoft sobre falso positivo nem garantia contra novos alertas. Mantenha bloqueado qualquer arquivo que o antivírus sinalizar. Veja [o registro da investigação](DEFENDER-INVESTIGATION.md).
+Os botões de instalação foram retirados. Os pacotes originais permanecem preservados para análise, com os mesmos hashes da publicação. A revisão estática e a comparação com o código publicado não confirmam falso positivo nem encerram o alerta. Veja [o registro da investigação](DEFENDER-INVESTIGATION.md).
 
-| Navegador | Pacote pronto |
+| Navegador | Situação |
 | --- | --- |
-| Opera | **[Clique aqui para baixar o ZIP para Opera](https://github.com/MrSeraloc/b4Play/raw/refs/heads/main/downloads/b4play-opera-0.4.3.zip)** |
-| Chrome / Chromium | **[Clique aqui para baixar o ZIP para Chrome](https://github.com/MrSeraloc/b4Play/raw/refs/heads/main/downloads/b4play-chrome-0.4.3.zip)** |
+| Opera 0.4.3 | Suspenso — detecção reproduzida |
+| Chrome / Chromium 0.4.3 | Suspenso — detecção reproduzida |
 
-Basta um download. [SHA-256](downloads/SHA256SUMS.txt) · [Privacidade](PRIVACY.pt-BR.md) · [Licença MIT](LICENSE) · [Suporte](https://github.com/MrSeraloc/b4Play/issues) · [Mudanças](CHANGELOG.md)
+[SHA-256 para análise](downloads/SHA256SUMS.txt) · [Privacidade](PRIVACY.pt-BR.md) · [Licença MIT](LICENSE) · [Suporte](https://github.com/MrSeraloc/b4Play/issues) · [Mudanças](CHANGELOG.md)
 
 ## Instalar em três etapas
+
+**Instruções históricas, mantidas para documentação. Não executar enquanto o alerta não for esclarecido.**
 
 1. Extraia `downloads/b4play-opera-0.4.3.zip` ou `downloads/b4play-chrome-0.4.3.zip` em uma pasta permanente. Escolha apenas um pacote.
 2. Abra `opera://extensions` ou `chrome://extensions`, ative **Modo de desenvolvedor**, escolha **Carregar sem compactação** e selecione a pasta que contém **manifest.json**.
@@ -41,7 +43,7 @@ Extraia a 0.4.3 na mesma pasta usada pela extensão instalada, substituindo os a
 
 ## Segurança e limitações
 
-- O Defender sinalizou as versões 0.3.0 e 0.4.1. A revisão do popup na 0.4.3 não é uma certificação antivírus. Não libere nem execute um pacote bloqueado. Não há exclusões ou alterações no Defender.
+- O Defender sinalizou as versões 0.3.0, 0.4.1 e 0.4.3. A revisão do popup não resolveu a detecção. Não libere nem execute um pacote bloqueado. Não há exclusões ou alterações no Defender.
 - Não há migração automática de chaves da 0.3.0. Desative/remova a extensão anterior para evitar dois resumos/cobranças. Se houver um serviço antigo aberto, encerre sua janela quando não precisar mais dele. O código antigo permanece no histórico Git; os ZIPs e o serviço antigo foram removidos da versão atual do repositório.
 - Tactiq é um site de terceiros, não uma API suportada. Pode mudar, exigir verificação e não entregar transcrições. A interface bilíngue não garante transcrição de vídeos em português. Shorts não são suportados.
 - A IA recebe título e transcrição e pode cobrar. Vídeos longos são processados em seções, com chamadas adicionais. Não há tentativas automáticas de repetir chamadas que falharam.
@@ -56,4 +58,4 @@ Para desenvolver: Node.js 22+, `npm test`, `npm run build`. Para empacotar no Wi
 
 As duas versões de navegador ficam neste repositório. A opção automática **Download ZIP** do GitHub baixa o código-fonte; use os pacotes prontos acima para instalar.
 
-A verificação dos pacotes atuais e os testes estão registrados em [validação e verificações pendentes](VALIDATION.md). Os 23 testes automatizados passaram com mensagens de extensão/IA simuladas. Como a 0.4.1 passou inicialmente e foi detectada depois, resultados locais não encerram a investigação nem garantem o download.
+A verificação dos pacotes atuais e os testes estão registrados em [validação e verificações pendentes](VALIDATION.md). Os 23 testes funcionais anteriores usaram IA/navegador simulados; não são uma validação de ausência de malware. A 0.4.3 passou na primeira verificação local e foi detectada depois sem alteração dos arquivos. A investigação continua aberta.

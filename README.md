@@ -4,20 +4,22 @@
 
 YouTube transcript summaries in 150–250, 300–500 or 500–750 words, using your OpenRouter or OpenAI API key. This rebuild removes the local Node.js service, extra token and .env files. Users only need a browser.
 
-> **0.3.0 is deprecated and unsupported.** Defender flagged its files. Do not install or redistribute its packages. Version 0.4.3 replaces it as the current beta. See [migration and deprecation details](DEPRECATED.md).
+> **INSTALLATION SUSPENDED — detection reproduced in 0.4.3 too.** Defender detected `Trojan:Script/Ulthar.A!ml` in both ZIPs, naming `panel.html` and `core.js`. Do not install, redistribute or unblock flagged files. Version 0.3.0 remains deprecated. No version is currently cleared as safe. Read [the review report](REVIEW-0.4.3.md).
 
-## Download 0.4.3 beta
+## Distribution suspended
 
-> **Detection under investigation:** Defender also flagged 0.4.1, including in a repeated local scan. Version 0.4.3 improves popup security and accessibility and passed its initial local scan, but Microsoft has not confirmed a false positive and future alerts are possible. Keep flagged files blocked. Read [the investigation record](DEFENDER-INVESTIGATION.md).
+Installation buttons have been removed. Original packages are preserved for analysis with their published hashes. Static review and comparison with published code do not establish a false positive or resolve the alert. Read [the investigation record](DEFENDER-INVESTIGATION.md).
 
-| Browser | Prepared package |
+| Browser | Status |
 | --- | --- |
-| Opera | **[Click here to download the Opera ZIP](https://github.com/MrSeraloc/b4Play/raw/refs/heads/main/downloads/b4play-opera-0.4.3.zip)** |
-| Chrome / Chromium | **[Click here to download the Chrome ZIP](https://github.com/MrSeraloc/b4Play/raw/refs/heads/main/downloads/b4play-chrome-0.4.3.zip)** |
+| Opera 0.4.3 | Suspended — detection reproduced |
+| Chrome / Chromium 0.4.3 | Suspended — detection reproduced |
 
-Only one download is needed. [SHA-256](downloads/SHA256SUMS.txt) · [Privacy](PRIVACY.md) · [MIT license](LICENSE) · [Support](https://github.com/MrSeraloc/b4Play/issues) · [Changelog](CHANGELOG.md)
+[SHA-256 for analysis](downloads/SHA256SUMS.txt) · [Privacy](PRIVACY.md) · [MIT license](LICENSE) · [Support](https://github.com/MrSeraloc/b4Play/issues) · [Changelog](CHANGELOG.md)
 
 ## Three-step setup
+
+**Historical instructions retained for documentation. Do not follow them while the detection remains unresolved.**
 
 1. Extract `downloads/b4play-opera-0.4.3.zip` or `downloads/b4play-chrome-0.4.3.zip` into a permanent folder. Choose one browser package.
 2. Open `opera://extensions` or `chrome://extensions`, enable **Developer mode**, choose **Load unpacked**, and select the folder with **manifest.json**.
@@ -41,7 +43,7 @@ Extract 0.4.3 into the same folder used by the installed extension, replacing it
 
 ## Security and limits
 
-- Defender flagged 0.3.0 and 0.4.1. The 0.4.3 popup revision is not an antivirus certification. Keep blocked files blocked. No Defender exclusions or protection changes are used.
+- Defender flagged 0.3.0, 0.4.1 and 0.4.3. The popup revision did not resolve detection. Keep blocked files blocked. No Defender exclusions or protection changes are used.
 - No credentials are migrated from 0.3.0. Disable/remove the old extension to avoid duplicate work/charges. Close the old companion's window when no longer needed. The old source remains in Git history; its ZIPs and companion service have been removed from the current branch.
 - Tactiq is a third-party website, not a supported API. Verification, changes, missing captions and unsupported video languages can prevent retrieval. Portuguese UI does not guarantee Portuguese transcription. Shorts are unsupported.
 - AI receives title/transcript and can charge for usage. Long transcripts require additional section requests. Failed requests are not retried automatically. Summaries may contain mistakes and do not analyze visual-only content.
@@ -54,4 +56,4 @@ Node.js 22+: `npm test`, `npm run build`. Windows packaging: `npm run package`, 
 
 `extension/` is the whole application, `tests/` mocks providers/browser APIs without real keys or charges, and `scripts/` holds development tooling. Both browser packages are maintained in this repository. GitHub's automatic **Download ZIP** downloads the source; use the prepared browser downloads above to install.
 
-Current package scans and checks are recorded in [validation details](VALIDATION.md). The 23 automated tests passed with mocked AI/extension messages. Since 0.4.1 initially passed and was later detected, local results do not resolve the investigation or guarantee downloads.
+Current package scans and checks are recorded in [validation details](VALIDATION.md). The previous 23 functional tests used mocked AI/extension messages and do not establish absence of malware. Version 0.4.3 initially passed a local scan and was subsequently detected without file changes. Investigation remains open.

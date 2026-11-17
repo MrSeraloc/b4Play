@@ -2,6 +2,8 @@
 
 Versão: **0.4.3 beta experimental**. A investigação do Defender permanece aberta, sem confirmação de falso positivo pela Microsoft. Veja [o registro](DEFENDER-INVESTIGATION.md).
 
+> **Resultado atualizado: NÃO LIBERADA PARA INSTALAÇÃO.** A detecção foi reproduzida nos dois ZIPs 0.4.3, apontando `panel.html` e `core.js`. Hashes e entradas coincidem com a tag publicada. Os resultados funcionais abaixo são históricos e não comprovam ausência de malware. Veja [a revisão atual](REVIEW-0.4.3.md).
+
 ## Testes da 0.4.3
 
 - **23 testes automatizados aprovados** com `node --test tests/*.test.mjs`; navegador/IA simulados, sem credenciais reais ou inferência paga.
@@ -25,9 +27,9 @@ Os pacotes têm manifesto na raiz, scripts/estilos locais, ajuda e licença. Nã
 
 ## Defender: resultado local, não garantia
 
-Cada ZIP final 0.4.3 foi verificado com `MpCmdRun.exe -Scan -ScanType 3 -File <caminho> -DisableRemediation`: **“found no threats”**, código 0 nos dois. Essa opção informa o resultado sem aplicar correções e não altera a proteção em tempo real. Não foram usadas exclusões nem restauração de quarentena.
+Na primeira verificação, cada ZIP 0.4.3 informou **“found no threats”**. A repetição posterior com `MpCmdRun.exe -Scan -ScanType 3 -File <caminho> -DisableRemediation` detectou **Trojan:Script/Ulthar.A!ml nos dois**, código 2, apontando `panel.html` e `core.js`. Essa opção informa o resultado sem aplicar correções e não altera a proteção em tempo real. Não foram usadas exclusões nem restauração de quarentena.
 
-**A 0.4.1 passou inicialmente e foi detectada depois, sem mudança de hash.** O resultado atual não encerra a investigação nem garante download ou ausência de detecção futura.
+**A 0.4.1 e a 0.4.3 passaram inicialmente e foram detectadas depois, sem mudança de hash.** Não há conclusão de falso positivo. Os pacotes permanecem preservados para análise; a instalação está suspensa.
 
 ```text
 f30736e665042cfa9f6bc15b02748b20d542611ecd97c41bbeae206813987cd3  b4play-opera-0.4.3.zip

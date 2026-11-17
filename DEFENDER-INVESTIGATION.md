@@ -1,5 +1,11 @@
 # Defender investigation / Investigação — 2026-11-16
 
+## 0.4.3 — detecção reproduzida / detection reproduced
+
+**Instalação suspensa.** Ambos os ZIPs 0.4.3 agora são detectados como `Trojan:Script/Ulthar.A!ml`, apontando `panel.html` e `core.js`. Os hashes são os mesmos da publicação. A comparação de todas as entradas dos dois pacotes com a tag `v0.4.3` passou. Isso confirma a integridade em relação ao código publicado, sem confirmar segurança ou falso positivo. Não foi gerado outro pacote nem alterado o código para tentar passar no antivírus. [Relatório](REVIEW-0.4.3.md) · [Material para envio à Microsoft](MICROSOFT-REVIEW-0.4.3.md).
+
+**Installation suspended.** Both 0.4.3 ZIPs now trigger the same detection, naming `panel.html` and `core.js`. Published hashes and all archive entries were verified against tag `v0.4.3`. This establishes correspondence with published source, not safety or a false positive. No replacement package was built. [Review](REVIEW-0.4.3.md).
+
 ## Português
 
 **Status: aberto. Não há confirmação de falso positivo pela Microsoft. Mantenha arquivos sinalizados bloqueados.**

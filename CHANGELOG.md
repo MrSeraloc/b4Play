@@ -1,5 +1,11 @@
 # Changelog / Mudanças
 
+## Security notice / Aviso de segurança — 2026-11-16
+
+**Distribution/installation suspended.** Defender detection `Trojan:Script/Ulthar.A!ml` was reproduced in both 0.4.3 ZIPs, pointing to `panel.html` and `core.js`. Hashes and all package entries match tag `v0.4.3`. The release code and packages have been preserved, with no replacement build. See [review](REVIEW-0.4.3.md).
+
+**Distribuição/instalação suspensas.** A detecção foi reproduzida nos dois ZIPs da 0.4.3, sem alteração de hash. A correspondência com o código publicado foi confirmada, mas isso não confirma falso positivo. Os pacotes foram preservados para análise, sem nova versão construída para tentar remover o alerta.
+
 ## 0.4.3 experimental beta — 2026-11-16
 
 - Add summary length (150–250, 300–500 or 500–750 words), reasoning effort and output-token controls in English/Portuguese settings. Default budget increases from 1,600 to 4,096 per request. The selected upper word limit is enforced; short sources may produce less text to avoid fabrication.

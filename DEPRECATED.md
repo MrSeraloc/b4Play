@@ -1,12 +1,14 @@
 # Deprecated versions / Versões descontinuadas
 
+> **Instalação suspensa / Installation suspended:** a detecção foi reproduzida na 0.4.3. Nenhuma versão está atualmente liberada como segura. No version is currently cleared as safe. [Review / Revisão](REVIEW-0.4.3.md).
+
 | Version / Versão | Status | Replacement / Substituição |
 | --- | --- | --- |
-| **0.3.0** | **DEPRECATED — unsupported / obsoleta, sem suporte** (2026-11-16) | 0.4.3 experimental beta |
-| 0.4.0 | Superseded: hover fix / substituída: correção do hover | 0.4.3 experimental beta |
-| 0.4.1 | Defender alert reproduced — do not install / alerta reproduzido — não instalar | 0.4.3 experimental beta |
-| 0.4.2 | Superseded: reasoning settings / substituída: configuração de raciocínio | 0.4.3 experimental beta |
-| 0.4.3 | Experimental beta, detection investigation ongoing / beta experimental, investigação em andamento | — |
+| **0.3.0** | **DEPRECATED — unsupported / obsoleta, sem suporte** (2026-11-16) | None cleared / nenhuma liberada |
+| 0.4.0 | Superseded / substituída | None cleared / nenhuma liberada |
+| 0.4.1 | Defender alert reproduced — do not install / alerta reproduzido — não instalar | None cleared / nenhuma liberada |
+| 0.4.2 | Superseded / substituída | None cleared / nenhuma liberada |
+| 0.4.3 | Defender alert reproduced — do not install / alerta reproduzido — não instalar | None cleared / nenhuma liberada |
 
 ## Português
 
@@ -16,7 +18,7 @@ A 0.3.0 também exigia Node.js, um serviço local aberto e um token adicional. A
 
 Os ZIPs 0.3.0 e o serviço local foram retirados da branch atual e dos botões de download. A [última revisão anterior à reconstrução](https://github.com/MrSeraloc/b4Play/tree/9846bf34ee3b4e94608287b53f8b12c286a8e00c) permanece no histórico para rastreabilidade e análise; não é uma versão recomendada para instalação. Nenhum arquivo em quarentena precisa ser restaurado para usar a 0.4.0.
 
-### Migrar
+### Referência de migração — somente após liberação
 
 1. Desative/remova a extensão antiga em `opera://extensions` ou `chrome://extensions`.
 2. Se o serviço antigo estiver aberto, encerre sua janela quando não precisar mais dele.
@@ -31,7 +33,7 @@ The old version also required Node.js, a local companion and an extra token. Ver
 
 Old ZIPs and the companion have been removed from the current branch and download buttons. The [previous revision](https://github.com/MrSeraloc/b4Play/tree/9846bf34ee3b4e94608287b53f8b12c286a8e00c) remains in history for traceability and analysis, not as a recommended install. No quarantined files need to be restored to use 0.4.0.
 
-### Migrate
+### Migration reference — only after clearance
 
 1. Disable/remove the old extension in your browser's extensions page.
 2. Close the old local service window when no longer needed.
