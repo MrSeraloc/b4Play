@@ -6,7 +6,7 @@ test('both browser manifests reference existing files with no local service or b
   for (const browser of ['opera', 'chrome']) {
     const base = new URL('../dist/' + browser + '/', import.meta.url);
     const manifest = JSON.parse(await readFile(new URL('manifest.json', base), 'utf8'));
-    assert.equal(manifest.version, '0.4.1'); assert.equal(manifest.background.type, 'module');
+    assert.equal(manifest.version, '0.4.2'); assert.equal(manifest.background.type, 'module');
     assert.equal(manifest.host_permissions, undefined);
     assert.deepEqual(manifest.optional_host_permissions, ['https://openrouter.ai/*', 'https://api.openai.com/*']);
     assert.deepEqual(manifest.permissions.sort(), ['activeTab', 'alarms', 'storage']);

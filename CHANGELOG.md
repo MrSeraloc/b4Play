@@ -1,5 +1,17 @@
 # Changelog / Mudanças
 
+## 0.4.2 experimental beta — 2026-11-16
+
+- Rebuilt the popup as readable semantic HTML with an explicit page-level CSP: local scripts/styles only, no direct network connections, objects, base-URL changes or form submission.
+- Added accessible status/summary updates, a disabled-until-ready summary button and a settings link that remains usable if JavaScript initialization fails.
+- Kept AI output as plain text and improved initialization/clipboard failure handling.
+- 17 automated tests passed; the new panel and both ZIPs passed their initial local Defender scan. This does not establish a false positive or guarantee future antivirus/download verdicts.
+- **Known security issue:** 0.4.1 was detected locally on rescan as `Trojan:Script/Ulthar.A!ml`, pointing to `panel.html`; the isolated hover script was not detected in that check. Investigation remains open: [details](DEFENDER-INVESTIGATION.md).
+
+### Português
+
+Popup refeito com HTML legível, política de segurança mais restrita e melhor acessibilidade. A 0.4.1 foi sinalizada também na nova verificação local; os resultados iniciais limpos não se mantiveram. A 0.4.2 passou na primeira verificação local, sem garantia de ausência de alertas futuros ou confirmação de falso positivo pela Microsoft.
+
 ## 0.4.1 beta — 2026-11-16
 
 - Fix hover getting stuck when the pointer leaves before the delay and re-enters the same thumbnail.

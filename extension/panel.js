@@ -1,26 +1,71 @@
-import {videoId} from './core.js';
+import {videoId, language} from './core.js';
 import {t, localize} from './strings.js';
-const $ = id => document.getElementById(id);
+
+const element = id => document.getElementById(id);
 const send = message => chrome.runtime.sendMessage(message);
-const config = await send({type: 'SETTINGS'}); localize(config.locale);
-const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
-const supported = !!videoId(tab?.url);
+let config = {locale: language(chrome.i18n.getUILanguage())};
+let currentTab;
 let retry = false;
-$('summarize').disabled = !supported || !config.keySet || !config.consent;
-$('status').textContent = !config.keySet || !config.consent ? t('config', config.locale) : !supported ? t('unsupported', config.locale) : '';
-if (supported) $('title').textContent = (tab.title || '').slice(0, 500);
-$('settings').addEventListener('click', () => chrome.runtime.openOptionsPage());
-$('summarize').addEventListener('click', async () => {
-  $('summarize').disabled = true; $('summary').textContent = ''; $('copy').hidden = true; $('status').textContent = t('working', config.locale);
+
+localize(config.locale);
+
+async function initialize() {
   try {
-    let result = await send({type: 'START', url: tab.url, title: tab.title, force: retry});
+    const result = await send({type: 'SETTINGS'});
+    if (result.error) throw new Error(result.error);
+    config = result;
+    localize(config.locale);
+    [currentTab] = await chrome.tabs.query({active: true, currentWindow: true});
+    const supported = !!videoId(currentTab?.url);
+    element('summarize').disabled = !supported || !config.keySet || !config.consent;
+    element('status').textContent = !config.keySet || !config.consent
+      ? t('config', config.locale)
+      : !supported ? t('unsupported', config.locale) : '';
+    if (supported) element('title').textContent = String(currentTab.title || '').slice(0, 500);
+  } catch {
+    element('status').textContent = t('failed', config.locale);
+  }
+}
+
+element('summarize').addEventListener('click', async () => {
+  if (!currentTab) return;
+  element('summarize').disabled = true;
+  element('summary').textContent = '';
+  element('summary').setAttribute('aria-busy', 'true');
+  element('copy').hidden = true;
+  element('status').textContent = t('working', config.locale);
+
+  try {
+    let result = await send({type: 'START', url: currentTab.url, title: currentTab.title, force: retry});
     for (let attempt = 0; attempt < 160; attempt++) {
       if (result.error) throw new Error(result.error);
-      if (result.state === 'ready') { $('summary').textContent = result.summary; $('copy').hidden = false; $('status').textContent = ''; return; }
-      await new Promise(resolve => setTimeout(resolve, 1000)); result = await send({type: 'STATUS', id: result.id});
+      if (result.state === 'ready') {
+        // AI output is untrusted text, never markup or executable content.
+        element('summary').textContent = result.summary;
+        element('copy').hidden = false;
+        element('status').textContent = '';
+        return;
+      }
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      result = await send({type: 'STATUS', id: result.id});
     }
     throw new Error(t('cancelled', config.locale));
-  } catch (error) { retry = true; $('status').textContent = error.message; }
-  finally { $('summarize').disabled = false; }
+  } catch (error) {
+    retry = true;
+    element('status').textContent = error.message;
+  } finally {
+    element('summary').setAttribute('aria-busy', 'false');
+    element('summarize').disabled = false;
+  }
 });
-$('copy').addEventListener('click', async () => { await navigator.clipboard.writeText($('summary').textContent); $('status').textContent = t('copied', config.locale); });
+
+element('copy').addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(element('summary').textContent);
+    element('status').textContent = t('copied', config.locale);
+  } catch {
+    element('status').textContent = t('failed', config.locale);
+  }
+});
+
+void initialize();

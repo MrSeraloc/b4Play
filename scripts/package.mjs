@@ -7,7 +7,7 @@ import {createHash} from 'node:crypto';
 execFileSync('powershell.exe', ['-NoProfile', '-File', fileURLToPath(new URL('package.ps1', import.meta.url))], {stdio: 'inherit'});
 const checksums = [];
 for (const browser of ['opera', 'chrome']) {
-  const name = 'b4play-' + browser + '-0.4.1.zip';
+  const name = 'b4play-' + browser + '-0.4.2.zip';
   const data = await readFile(new URL('../downloads/' + name, import.meta.url));
   checksums.push(createHash('sha256').update(data).digest('hex') + '  ' + name);
 }

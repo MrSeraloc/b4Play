@@ -1,5 +1,5 @@
 {
-  "name": "b4play", "version": "0.4.1", "private": true,
+  "name": "b4play", "version": "0.4.2", "private": true,
   "type": "module", "license": "MIT",
   "description": "Bilingual YouTube transcript summaries with your own OpenRouter or OpenAI key. No local service.",
   "repository": {"type": "git", "url": "https://github.com/MrSeraloc/b4Play.git"},

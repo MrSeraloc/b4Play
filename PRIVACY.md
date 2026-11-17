@@ -1,4 +1,4 @@
-# Privacy — b4Play 0.4.1
+# Privacy — b4Play 0.4.2
 
 [Português](PRIVACY.pt-BR.md) · Updated 2026-11-16
 

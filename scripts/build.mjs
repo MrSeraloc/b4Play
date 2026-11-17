@@ -26,4 +26,4 @@ for (const browser of ['opera', 'chrome']) {
   await writeFile(new URL('manifest.json', dir), JSON.stringify(value, null, 2) + '\n');
   await writeFile(new URL('dist/' + browser + '-files.json', root), JSON.stringify([...files, ...sizes.map(size => 'icons/icon-' + size + '.png')]));
 }
-console.log('b4Play 0.4.1 built for Opera and Chrome.');
+console.log('b4Play 0.4.2 built for Opera and Chrome.');
