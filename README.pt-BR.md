@@ -4,6 +4,8 @@
 
 Contexto antes do próximo play. O b4Play resume transcrições do YouTube em **até 200 palavras**, ao passar o mouse na miniatura ou pelo botão da barra de ferramentas.
 
+> **Aviso de segurança:** o Microsoft Defender identificou arquivos da versão 0.3.0 como `Trojan:Script/Ulthar.A!ml`. A causa ainda está em investigação. Não instale nem distribua estes pacotes enquanto a detecção não for esclarecida.
+
 ## Downloads — beta 0.3.0
 
 | Navegador | Download |
@@ -17,6 +19,8 @@ Contexto antes do próximo play. O b4Play resume transcrições do YouTube em **
 **Esta é uma versão beta instalada pelo modo de desenvolvedor, sem aprovação nas lojas.** É necessário ter Node.js 22+, manter o serviço local aberto e usar uma chave própria da OpenAI ou do OpenRouter. A API pode cobrar pelo uso. Não há servidor operado pelo desenvolvedor, anúncios ou telemetria.
 
 ## Instalação
+
+Após o esclarecimento do alerta acima, você precisará de **dois arquivos**: o ZIP do seu navegador e o ZIP do serviço local. O serviço inicia no seu computador e precisa ficar aberto enquanto a extensão é usada. As etapas abaixo explicam a instalação manual desta versão beta.
 
 1. Baixe e extraia o ZIP do seu navegador e o ZIP do serviço local. Use pastas permanentes.
 2. Na pasta do serviço, execute `node --env-file-if-exists=.env server/index.mjs`. No Windows também é possível executar `iniciar.ps1`. Não é necessário instalar pacotes npm.

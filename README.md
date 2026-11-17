@@ -4,6 +4,8 @@
 
 Context before your next play. b4Play summarizes YouTube transcripts in **up to 200 words**, on thumbnail hover or from the toolbar button.
 
+> **Security notice:** Microsoft Defender has detected files in version 0.3.0 as `Trojan:Script/Ulthar.A!ml`. The cause is still under investigation. Do not install or distribute these packages until the detection is resolved.
+
 ## Downloads — beta 0.3.0
 
 | Browser | Download |
@@ -17,6 +19,8 @@ Context before your next play. b4Play summarizes YouTube transcripts in **up to 
 **This is a developer-mode beta, not an approved store listing.** You need Node.js 22+, a running local service, and your own OpenAI or OpenRouter API key. API use can cost money. There is no developer-operated backend, advertising, or telemetry.
 
 ## Install
+
+Once the alert above is resolved, you will need **two files**: your browser ZIP and the local service ZIP. The service runs on your computer and must remain open while you use the extension. The steps below describe this beta's manual installation.
 
 1. Download and extract the ZIP for your browser and the local service ZIP. Keep them in permanent folders.
 2. In the extracted service folder, run `node --env-file-if-exists=.env server/index.mjs`. Windows users can also run `iniciar.ps1`. No package installation is required.
