@@ -19,7 +19,8 @@
     close.setAttribute('aria-label', words('Fechar resumo', 'Close summary'));
     section.setAttribute('aria-label', words('Resumo do vídeo', 'Video summary'));
     retry.textContent = words('Tentar novamente', 'Try again'); setup.textContent = words('Configurar', 'Settings');
-    note.textContent = words('Até 200 palavras · A API pode cobrar', 'Up to 200 words · API charges may apply');
+    const range = settings.summaryLength || '150-250';
+    note.textContent = words('Meta: ' + range + ' palavras · A API pode cobrar', 'Target: ' + range + ' words · API charges may apply');
   }
   async function refresh() {
     const result = await send({type: 'SETTINGS'});

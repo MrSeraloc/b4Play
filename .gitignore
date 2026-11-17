@@ -1,7 +1,7 @@
 dist/
 downloads/*
-!downloads/b4play-opera-0.4.2.zip
-!downloads/b4play-chrome-0.4.2.zip
+!downloads/b4play-opera-0.4.3.zip
+!downloads/b4play-chrome-0.4.3.zip
 !downloads/SHA256SUMS.txt
 node_modules/
 .env*

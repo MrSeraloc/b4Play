@@ -3,8 +3,8 @@ const root = new URL('../', import.meta.url);
 export const files = ['manifest.json', 'worker.js', 'core.js', 'strings.js', 'youtube.js', 'transcript.js', 'settings.html', 'settings.js', 'panel.html', 'panel.js', 'ui.css', 'HELP.html', 'LICENSE', '_locales/en/messages.json', '_locales/pt_BR/messages.json'];
 const manifest = JSON.parse(await readFile(new URL('extension/manifest.json', root), 'utf8'));
 const catalogs = {
-  en: {description: {message: 'YouTube transcript summaries, up to 200 words. Your own AI key. No local service required.'}},
-  pt_BR: {description: {message: 'Resumos de transcrições do YouTube em até 200 palavras. Sua chave de IA. Sem serviço local.'}}
+  en: {description: {message: 'YouTube summaries: 150–250, 300–500 or 500–750 words. Your own AI key. No local service required.'}},
+  pt_BR: {description: {message: 'Resumos do YouTube: 150–250, 300–500 ou 500–750 palavras. Sua chave de IA. Sem serviço local.'}}
 };
 for (const [locale, data] of Object.entries(catalogs)) {
   await mkdir(new URL('extension/_locales/' + locale + '/', root), {recursive: true});
@@ -26,4 +26,4 @@ for (const browser of ['opera', 'chrome']) {
   await writeFile(new URL('manifest.json', dir), JSON.stringify(value, null, 2) + '\n');
   await writeFile(new URL('dist/' + browser + '-files.json', root), JSON.stringify([...files, ...sizes.map(size => 'icons/icon-' + size + '.png')]));
 }
-console.log('b4Play 0.4.2 built for Opera and Chrome.');
+console.log('b4Play 0.4.3 built for Opera and Chrome.');

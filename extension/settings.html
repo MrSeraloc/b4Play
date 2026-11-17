@@ -1,10 +1,16 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>b4Play · Settings</title><link rel="stylesheet" href="ui.css"></head>
-<body><main><header><strong>b4Play</strong><small>0.4.2 · BETA</small></header><h1 data-text="intro">Context before your next play.</h1><p data-text="setup"></p>
+<body><main><header><strong>b4Play</strong><small>0.4.3 · BETA</small></header><h1 data-text="intro">Context before your next play.</h1><p data-text="setup"></p>
 <form id="preferences">
 <label for="language" data-text="language"></label><select id="language"><option value="auto">Automatic / Automático</option><option value="en">English</option><option value="pt-BR">Português (Brasil)</option></select>
 <label for="provider" data-text="provider"></label><select id="provider"><option value="openrouter">OpenRouter</option><option value="openai">OpenAI</option></select>
 <label for="model" data-text="model"></label><input id="model" required maxlength="160" placeholder="provider/model"><p class="hint" data-text="modelHelp"></p><a id="catalog" href="https://openrouter.ai/models" target="_blank" rel="noopener noreferrer">Model catalog ↗</a>
+<fieldset><legend data-text="generationTitle">AI generation</legend>
+<label for="summary-length" data-text="summaryLengthLabel">Summary length (words)</label><select id="summary-length"><option value="150-250">150–250</option><option value="300-500">300–500</option><option value="500-750">500–750</option></select><p class="hint" data-text="summaryLengthHelp"></p>
+<label for="reasoning" data-text="reasoningLabel">Reasoning effort</label><select id="reasoning"><option value="auto" data-text="reasoningAuto">Automatic (model default)</option><option value="none" data-text="reasoningNone">None</option><option value="minimal" data-text="reasoningMinimal">Minimal</option><option value="low" data-text="reasoningLow">Low</option><option value="medium" data-text="reasoningMedium">Medium</option><option value="high" data-text="reasoningHigh">High</option><option value="xhigh" data-text="reasoningXhigh">Extra high</option><option value="max" data-text="reasoningMax">Maximum</option></select>
+<p class="hint" data-text="reasoningHelp"></p><button id="check-model" type="button" class="secondary" data-text="checkModel">Check model options</button><p id="model-status" role="status" class="hint"></p>
+<label for="output-tokens" data-text="outputTokensLabel">Output token limit</label><select id="output-tokens"><option value="1024">1,024</option><option value="2048">2,048</option><option value="4096" selected>4,096</option><option value="8192">8,192</option><option value="16384">16,384</option></select><p class="hint" data-text="outputTokensHelp"></p>
+</fieldset>
 <label for="key" data-text="key"></label><input id="key" type="password" autocomplete="off" spellcheck="false" maxlength="2048"><p class="hint" data-text="keyHelp"></p>
 <label class="check"><input id="remember" type="checkbox"><span data-text="remember"></span></label>
 <label class="check"><input id="hover" type="checkbox"><span data-text="hover"></span></label>

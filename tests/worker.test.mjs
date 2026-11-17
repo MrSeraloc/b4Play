@@ -84,3 +84,32 @@ test('failed AI requests are not repeated by hover', async () => {
   const again = await h.send({type: 'START', url: video}, youtube);
   assert.equal(again.state, 'error'); assert.equal(h.requests.length, 1); assert.equal(h.tabs.length, 0);
 });
+
+test('reasoning settings persist, are public without key, and reach the provider on import', async () => {
+  const h = await setup(); await h.save({reasoning: 'low', outputTokens: 8192, summaryLength: '500-750'});
+  const settings = await h.send({type: 'SETTINGS'});
+  assert.equal(settings.reasoning, 'low'); assert.equal(settings.outputTokens, 8192);
+  assert.equal(settings.summaryLength, '500-750');
+  assert.doesNotMatch(JSON.stringify(settings), /sk-or-test/);
+  const job = await h.send({type: 'START', url: video, transcript: 'A manually imported transcript with enough information.'});
+  assert.equal((await h.wait(job.id)).state, 'ready');
+  const body = JSON.parse(h.requests[0].options.body);
+  assert.equal(body.reasoning.effort, 'low'); assert.equal(body.max_tokens, 8192);
+  assert.match(body.messages[0].content, /between 500 and 750 words/);
+  await h.save({key: '', reasoning: 'high', outputTokens: 4096});
+  assert.equal(h.session.data.cache, undefined);
+});
+test('model options use public GET only, filter supported efforts and reject webpage requests', async () => {
+  const h = await setup();
+  globalThis.fetch = async (url, options) => {
+    h.requests.push({url, options});
+    return Response.json({data: [{id: 'deepseek/deepseek-v4.1-flash', reasoning: {supported_efforts: ['max', 'high', 'low', 'none'], default_effort: 'high', mandatory: false}, top_provider: {max_completion_tokens: 393216}}]});
+  };
+  const request = {type: 'MODEL_OPTIONS', provider: 'openrouter', model: 'deepseek/deepseek-v4.1-flash'};
+  assert.ok((await h.send(request, youtube)).error); assert.equal(h.requests.length, 0);
+  const result = await h.send(request);
+  assert.deepEqual(result.efforts, ['max', 'high', 'low', 'none']); assert.equal(result.defaultEffort, 'high');
+  assert.equal(h.requests[0].url, 'https://openrouter.ai/api/v1/models');
+  assert.equal(h.requests[0].options.method, 'GET'); assert.equal(h.requests[0].options.headers, undefined);
+  assert.equal(h.tabs.length, 0); assert.equal(h.local.data.secret, undefined);
+});

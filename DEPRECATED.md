@@ -2,10 +2,11 @@
 
 | Version / Versão | Status | Replacement / Substituição |
 | --- | --- | --- |
-| **0.3.0** | **DEPRECATED — unsupported / obsoleta, sem suporte** (2026-11-16) | 0.4.2 experimental beta |
-| 0.4.0 | Superseded: hover fix / substituída: correção do hover | 0.4.2 experimental beta |
-| 0.4.1 | Defender alert reproduced — do not install / alerta reproduzido — não instalar | 0.4.2 experimental beta |
-| 0.4.2 | Experimental beta, detection investigation ongoing / beta experimental, investigação em andamento | — |
+| **0.3.0** | **DEPRECATED — unsupported / obsoleta, sem suporte** (2026-11-16) | 0.4.3 experimental beta |
+| 0.4.0 | Superseded: hover fix / substituída: correção do hover | 0.4.3 experimental beta |
+| 0.4.1 | Defender alert reproduced — do not install / alerta reproduzido — não instalar | 0.4.3 experimental beta |
+| 0.4.2 | Superseded: reasoning settings / substituída: configuração de raciocínio | 0.4.3 experimental beta |
+| 0.4.3 | Experimental beta, detection investigation ongoing / beta experimental, investigação em andamento | — |
 
 ## Português
 
@@ -19,7 +20,7 @@ Os ZIPs 0.3.0 e o serviço local foram retirados da branch atual e dos botões d
 
 1. Desative/remova a extensão antiga em `opera://extensions` ou `chrome://extensions`.
 2. Se o serviço antigo estiver aberto, encerre sua janela quando não precisar mais dele.
-3. Leia o [aviso de segurança da beta experimental 0.4.2](README.pt-BR.md) antes de baixar qualquer pacote. Mantenha bloqueado qualquer arquivo sinalizado pelo antivírus.
+3. Leia o [aviso de segurança da beta experimental atual](README.pt-BR.md) antes de baixar qualquer pacote. Mantenha bloqueado qualquer arquivo sinalizado pelo antivírus.
 4. Configure sua chave e modelo novamente. As credenciais e o cache antigo não são importados. Não confunda o antigo token local com uma chave OpenRouter/OpenAI.
 
 ## English
@@ -34,5 +35,5 @@ Old ZIPs and the companion have been removed from the current branch and downloa
 
 1. Disable/remove the old extension in your browser's extensions page.
 2. Close the old local service window when no longer needed.
-3. Read the [experimental 0.4.2 beta's security notice](README.md) before downloading any package. Keep any file flagged by antivirus blocked.
+3. Read the [current experimental beta's security notice](README.md) before downloading any package. Keep any file flagged by antivirus blocked.
 4. Enter your provider key and model again. Old credentials/cache are not imported. The old local token is not an OpenRouter/OpenAI API key.

@@ -1,4 +1,4 @@
-import {providers, videoId, language, validateConfig, summarize} from './core.js';
+import {providers, videoId, language, validateConfig, summarize, reasoningEfforts} from './core.js';
 import {errorText} from './strings.js';
 
 // Secrets and work state stay in extension-owned storage; content scripts only get public replies.
@@ -19,6 +19,7 @@ async function configuration() {
     locale: language(preferences.language === 'auto' ? chrome.i18n.getUILanguage() : preferences.language)};
 }
 const publicSettings = config => ({provider: config.provider, model: config.model, language: config.language, locale: config.locale,
+  reasoning: config.reasoning ?? 'auto', outputTokens: config.outputTokens ?? 4096, summaryLength: config.summaryLength ?? '150-250',
   hover: config.hover, consent: config.consent, remember: !!config.remember, keySet: !!config.key});
 const publicJob = job => job ? {id: job.id, video: job.video, state: job.state, summary: job.summary, error: job.error, locale: job.locale} : {state: 'idle'};
 const currentJob = async () => (await chrome.storage.session.get('job')).job;
@@ -119,6 +120,26 @@ async function dispatch(message, sender) {
   }
   if (message.type === 'OPEN_SETTINGS') { await chrome.runtime.openOptionsPage(); return {ok: true}; }
   if (!own) throw new Error('invalid');
+  if (message.type === 'MODEL_OPTIONS') {
+    const model = typeof message.model === 'string' ? message.model.trim() : '';
+    if (message.provider !== 'openrouter' || !model || model.length > 160 || /\s/.test(model)) throw new Error('model');
+    if (!await chrome.permissions.contains({origins: [providers.openrouter.origin]})) throw new Error('permission');
+    let response;
+    try {
+      // Public metadata only: no Authorization header, transcript, title or inference request.
+      response = await fetch('https://openrouter.ai/api/v1/models', {method: 'GET', redirect: 'error', credentials: 'omit', referrerPolicy: 'no-referrer', signal: AbortSignal.timeout(10000)});
+    } catch { throw new Error('catalogError'); }
+    const catalog = await response.json().catch(() => null);
+    if (!response.ok || !Array.isArray(catalog?.data)) throw new Error('catalogError');
+    const info = catalog.data.find(item => item.id === model);
+    if (!info) throw new Error('modelMissing');
+    const advertised = info.reasoning?.supported_efforts;
+    const efforts = advertised === null ? reasoningEfforts.filter(effort => effort !== 'auto')
+      : Array.isArray(advertised) ? advertised.filter(effort => reasoningEfforts.includes(effort) && effort !== 'auto') : [];
+    return {efforts: info.reasoning?.mandatory ? efforts.filter(effort => effort !== 'none') : efforts,
+      defaultEffort: typeof info.reasoning?.default_effort === 'string' ? info.reasoning.default_effort : '',
+      maxOutput: Number.isInteger(info.top_provider?.max_completion_tokens) ? info.top_provider.max_completion_tokens : null};
+  }
   if (message.type === 'SAVE') {
     const previous = await configuration();
     const config = validateConfig(message, previous.provider === message.provider ? previous.key : '');

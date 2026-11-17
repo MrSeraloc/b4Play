@@ -1,5 +1,17 @@
 # Changelog / Mudanças
 
+## 0.4.3 experimental beta — 2026-11-16
+
+- Add summary length (150–250, 300–500 or 500–750 words), reasoning effort and output-token controls in English/Portuguese settings. Default budget increases from 1,600 to 4,096 per request. The selected upper word limit is enforced; short sources may produce less text to avoid fabrication.
+- Send provider-specific parameters: OpenRouter `reasoning.effort` with excluded reasoning text; OpenAI `reasoning_effort`. Automatic omits effort. Higher budgets/efforts may cost more.
+- Query public OpenRouter model metadata on demand, without API keys or inference; disable unadvertised efforts in the settings UI.
+- Distinguish output-token exhaustion, reasoning-only responses, refused content and rejected parameters. No automatic retry or internal-reasoning fallback.
+- 23 automated tests passed, including all summary ranges, provider payloads, saved settings, private-data isolation and truncated/reasoning-only responses. Real inference was not used to validate this fix.
+
+### Português
+
+Adicionados tamanho do resumo (150–250, 300–500 ou 500–750 palavras), esforço de raciocínio e limite de saída nas configurações, com consulta aos níveis aceitos no catálogo do OpenRouter. O padrão passou para 4.096 tokens por chamada. Para DeepSeek V4.1 Flash, a configuração inicial sugerida é Baixo + 4.096. O erro agora distingue limite esgotado de resposta sem texto final, sem repetir chamadas automaticamente.
+
 ## 0.4.2 experimental beta — 2026-11-16
 
 - Rebuilt the popup as readable semantic HTML with an explicit page-level CSP: local scripts/styles only, no direct network connections, objects, base-URL changes or form submission.
