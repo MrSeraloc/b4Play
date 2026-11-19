@@ -1,5 +1,7 @@
 # Material para análise da Microsoft / Microsoft review material
 
+> **Rascunho histórico / Historical draft.** A [atualização de 18/11/2026](DEFENDER-INVESTIGATION.md) registra a liberação informada pelo mantenedor. The [2026-11-18 update](DEFENDER-INVESTIGATION.md) records the reported clearance.
+
 Use o [portal oficial](https://www.microsoft.com/en-us/wdsi/filesubmission?persona=SoftwareDeveloper) para solicitar análise, sem afirmar que o falso positivo já foi confirmado. O agente não enviou amostras. Mantenha o arquivo bloqueado se a proteção impedir a seleção; este documento e os hashes podem acompanhar um contato com o suporte oficial. Não desative o antivírus para realizar o envio.
 
 ## Suggested submission text

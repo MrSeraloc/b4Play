@@ -1,5 +1,11 @@
 # Changelog / Mudanças
 
+## 2026-11-18 · Downloads restaurados / Downloads restored
+
+Os ZIPs originais da 0.4.3 voltaram aos READMEs após o relato de liberação pela Microsoft e a nova verificação local do Defender com resultado limpo para Opera e Chrome.
+
+The original 0.4.3 ZIPs are linked in both READMEs again after the maintainer reported Microsoft's clearance and a new local Defender scan found no threats in either browser package.
+
 ## Security notice / Aviso de segurança — 2026-11-16
 
 **Distribution/installation suspended.** Defender detection `Trojan:Script/Ulthar.A!ml` was reproduced in both 0.4.3 ZIPs, pointing to `panel.html` and `core.js`. Hashes and all package entries match tag `v0.4.3`. The release code and packages have been preserved, with no replacement build. See [review](REVIEW-0.4.3.md).

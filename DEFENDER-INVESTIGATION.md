@@ -1,5 +1,13 @@
 # Defender investigation / Investigação — 2026-11-16
 
+## 2026-11-18 · Downloads da 0.4.3 restaurados / 0.4.3 downloads restored
+
+O mantenedor informou que a Microsoft liberou a versão 0.4.3. Uma nova verificação local do Defender encontrou **nenhuma ameaça** em ambos os ZIPs originais, com código de saída 0 e SHA-256 iguais aos da publicação. Os links de instalação foram restaurados para os pacotes da tag `v0.4.3`. [Validação e hashes](VALIDATION.md)
+
+The maintainer reported that Microsoft cleared version 0.4.3. A new local Defender scan found **no threats** in both original ZIPs, with exit code 0 and SHA-256 hashes matching the published packages. The restored links point to the `v0.4.3` tag. [Validation and checksums](VALIDATION.md)
+
+## Histórico da investigação / Investigation history (2026-11-16)
+
 ## 0.4.3 — detecção reproduzida / detection reproduced
 
 **Instalação suspensa.** Ambos os ZIPs 0.4.3 agora são detectados como `Trojan:Script/Ulthar.A!ml`, apontando `panel.html` e `core.js`. Os hashes são os mesmos da publicação. A comparação de todas as entradas dos dois pacotes com a tag `v0.4.3` passou. Isso confirma a integridade em relação ao código publicado, sem confirmar segurança ou falso positivo. Não foi gerado outro pacote nem alterado o código para tentar passar no antivírus. [Relatório](REVIEW-0.4.3.md) · [Material para envio à Microsoft](MICROSOFT-REVIEW-0.4.3.md).

@@ -1,14 +1,12 @@
 # Deprecated versions / Versões descontinuadas
 
-> **Instalação suspensa / Installation suspended:** a detecção foi reproduzida na 0.4.3. Nenhuma versão está atualmente liberada como segura. No version is currently cleared as safe. [Review / Revisão](REVIEW-0.4.3.md).
-
 | Version / Versão | Status | Replacement / Substituição |
 | --- | --- | --- |
-| **0.3.0** | **DEPRECATED — unsupported / obsoleta, sem suporte** (2026-11-16) | None cleared / nenhuma liberada |
-| 0.4.0 | Superseded / substituída | None cleared / nenhuma liberada |
-| 0.4.1 | Defender alert reproduced — do not install / alerta reproduzido — não instalar | None cleared / nenhuma liberada |
-| 0.4.2 | Superseded / substituída | None cleared / nenhuma liberada |
-| 0.4.3 | Defender alert reproduced — do not install / alerta reproduzido — não instalar | None cleared / nenhuma liberada |
+| **0.3.0** | **DEPRECATED — unsupported / obsoleta, sem suporte** (2026-11-16) | 0.4.3 beta |
+| 0.4.0 | Superseded / substituída | 0.4.3 beta |
+| 0.4.1 | Superseded / substituída | 0.4.3 beta |
+| 0.4.2 | Superseded / substituída | 0.4.3 beta |
+| 0.4.3 | Current beta / beta atual | — |
 
 ## Português
 
@@ -18,11 +16,11 @@ A 0.3.0 também exigia Node.js, um serviço local aberto e um token adicional. A
 
 Os ZIPs 0.3.0 e o serviço local foram retirados da branch atual e dos botões de download. A [última revisão anterior à reconstrução](https://github.com/MrSeraloc/b4Play/tree/9846bf34ee3b4e94608287b53f8b12c286a8e00c) permanece no histórico para rastreabilidade e análise; não é uma versão recomendada para instalação. Nenhum arquivo em quarentena precisa ser restaurado para usar a 0.4.0.
 
-### Referência de migração — somente após liberação
+### Migração para a 0.4.3
 
 1. Desative/remova a extensão antiga em `opera://extensions` ou `chrome://extensions`.
 2. Se o serviço antigo estiver aberto, encerre sua janela quando não precisar mais dele.
-3. Leia o [aviso de segurança da beta experimental atual](README.pt-BR.md) antes de baixar qualquer pacote. Mantenha bloqueado qualquer arquivo sinalizado pelo antivírus.
+3. Baixe o pacote 0.4.3 para seu navegador e siga as [instruções de instalação](README.pt-BR.md).
 4. Configure sua chave e modelo novamente. As credenciais e o cache antigo não são importados. Não confunda o antigo token local com uma chave OpenRouter/OpenAI.
 
 ## English
@@ -33,9 +31,9 @@ The old version also required Node.js, a local companion and an extra token. Ver
 
 Old ZIPs and the companion have been removed from the current branch and download buttons. The [previous revision](https://github.com/MrSeraloc/b4Play/tree/9846bf34ee3b4e94608287b53f8b12c286a8e00c) remains in history for traceability and analysis, not as a recommended install. No quarantined files need to be restored to use 0.4.0.
 
-### Migration reference — only after clearance
+### Migrate to 0.4.3
 
 1. Disable/remove the old extension in your browser's extensions page.
 2. Close the old local service window when no longer needed.
-3. Read the [current experimental beta's security notice](README.md) before downloading any package. Keep any file flagged by antivirus blocked.
+3. Download 0.4.3 for your browser and follow the [installation instructions](README.md).
 4. Enter your provider key and model again. Old credentials/cache are not imported. The old local token is not an OpenRouter/OpenAI API key.

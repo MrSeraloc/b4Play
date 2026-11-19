@@ -1,8 +1,6 @@
 # Validação local — 16/11/2026
 
-Versão: **0.4.3 beta experimental**. A investigação do Defender permanece aberta, sem confirmação de falso positivo pela Microsoft. Veja [o registro](DEFENDER-INVESTIGATION.md).
-
-> **Resultado atualizado: NÃO LIBERADA PARA INSTALAÇÃO.** A detecção foi reproduzida nos dois ZIPs 0.4.3, apontando `panel.html` e `core.js`. Hashes e entradas coincidem com a tag publicada. Os resultados funcionais abaixo são históricos e não comprovam ausência de malware. Veja [a revisão atual](REVIEW-0.4.3.md).
+**Atualização de 18/11/2026 — 0.4.3 beta.** Após o mantenedor informar a liberação pela Microsoft, o Defender foi executado novamente nos ZIPs originais de Opera e Chrome. Ambos retornaram “found no threats” e código 0. Os hashes abaixo foram reconferidos e coincidem com a publicação. [Registro da investigação](DEFENDER-INVESTIGATION.md)
 
 ## Testes da 0.4.3
 
@@ -29,7 +27,7 @@ Os pacotes têm manifesto na raiz, scripts/estilos locais, ajuda e licença. Nã
 
 Na primeira verificação, cada ZIP 0.4.3 informou **“found no threats”**. A repetição posterior com `MpCmdRun.exe -Scan -ScanType 3 -File <caminho> -DisableRemediation` detectou **Trojan:Script/Ulthar.A!ml nos dois**, código 2, apontando `panel.html` e `core.js`. Essa opção informa o resultado sem aplicar correções e não altera a proteção em tempo real. Não foram usadas exclusões nem restauração de quarentena.
 
-**A 0.4.1 e a 0.4.3 passaram inicialmente e foram detectadas depois, sem mudança de hash.** Não há conclusão de falso positivo. Os pacotes permanecem preservados para análise; a instalação está suspensa.
+Esse resultado é de 16/11/2026. A atualização de 18/11/2026 no topo deste documento registra a verificação mais recente da 0.4.3.
 
 ```text
 f30736e665042cfa9f6bc15b02748b20d542611ecd97c41bbeae206813987cd3  b4play-opera-0.4.3.zip
@@ -38,4 +36,4 @@ f30736e665042cfa9f6bc15b02748b20d542611ecd97c41bbeae206813987cd3  b4play-opera-0
 
 ## Pendências
 
-Análise da Microsoft, download no navegador do usuário, inferência real, teste da extensão instalada em Opera/Chrome e outros sistemas e aprovação de lojas. Não foi possível confirmar a causa exata do erro original sem a resposta real da API. O Tactiq pode falhar ou não suportar o vídeo/idioma; suas restrições não são contornadas. Tamanhos e raciocínio maiores podem aumentar custo e tempo; os limites/níveis aceitos variam por modelo.
+Inferência real, testes da extensão instalada em Opera/Chrome e outros sistemas, e aprovação de lojas. Tamanhos de resumo e níveis de raciocínio maiores podem aumentar custo e tempo. Os limites aceitos variam por modelo.

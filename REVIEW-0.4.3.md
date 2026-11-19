@@ -1,5 +1,7 @@
 # Revisão de segurança / Security review — b4Play 0.4.3
 
+> **Relatório histórico / Historical report.** Veja o [resultado de 18/11/2026](DEFENDER-INVESTIGATION.md) sobre a liberação informada pelo mantenedor e a nova verificação dos ZIPs. See the [2026-11-18 update](DEFENDER-INVESTIGATION.md) for the maintainer's report of clearance and the new ZIP scans.
+
 Data: 16/11/2026. Referência: tag `v0.4.3`, commit `a2a703a`. **Instalação suspensa. Investigação aberta, sem confirmação de falso positivo.**
 
 ## Detecção reproduzida
