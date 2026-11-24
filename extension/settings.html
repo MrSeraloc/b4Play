@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>b4Play · Settings</title><link rel="stylesheet" href="ui.css"></head>
+<body><main><header><strong>b4Play</strong><small>0.1.a · ALPHA</small></header>
+<div id="compact-actions" hidden>
+  <button id="done" type="button" class="secondary" data-text="close"></button>
+  <button id="full-settings" type="button" class="secondary" data-text="fullSettings"></button>
+</div>
+<section id="authorization" aria-labelledby="authorization-title" hidden>
+  <h1 id="authorization-title" data-text="activate">Enable summaries</h1>
+  <p class="disclosure" data-text="disclosure"></p>
+  <button id="authorize" type="button" data-text="allow">Allow sending</button>
+  <p id="authorization-status" role="status"></p>
+</section>
+<form id="preferences">
+<label for="summary-length" data-text="summaryLengthLabel">Summary length (words)</label><select id="summary-length"><option value="150-300" data-text="summaryShort">Short (150–300 words)</option><option value="300-500" data-text="summaryMedium">Medium (300–500 words)</option><option value="500-750" data-text="summaryLong">Long (500–750 words)</option></select>
+<p class="hint" id="summary-language"></p>
+<div class="save-actions"><button type="submit" data-text="save"></button><p id="status" role="status"></p></div></form>
+<details id="import-details"><summary data-text="importTitle"></summary><form id="import-form"><label for="url" data-text="url"></label><input id="url" type="url" required placeholder="https://www.youtube.com/watch?v=…"><label for="file" data-text="file"></label><input id="file" type="file" accept=".txt,text/plain" required><button type="submit" data-text="import"></button><p id="import-status" role="status"></p><p id="summary"></p><button id="copy" type="button" hidden data-text="copy"></button></form></details>
+<footer id="settings-footer"><a href="HELP.html" target="_blank" data-text="privacy"></a><button type="button" class="secondary" id="forget" data-text="forget"></button></footer>
+</main><script type="module" src="settings.js"></script></body></html>

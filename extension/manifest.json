@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "b4Play",
+  "version": "0.1.0",
+  "default_locale": "en",
+  "description": "__MSG_description__",
+  "permissions": ["storage", "activeTab", "alarms"],
+  "background": {"service_worker": "worker.js", "type": "module"},
+  "action": {"default_popup": "panel.html", "default_title": "b4Play"},
+  "options_page": "settings.html",
+  "web_accessible_resources": [
+    {"resources": ["settings.html"], "matches": ["https://www.youtube.com/*", "https://youtube.com/*"]}
+  ],
+  "content_security_policy": {"extension_pages": "script-src 'self'; object-src 'none'; base-uri 'none'"},
+  "content_scripts": [
+    {"matches": ["https://www.youtube.com/*", "https://youtube.com/*"], "js": ["youtube.js"]},
+    {"matches": ["https://tactiq.io/tools/run/youtube_transcript*"], "js": ["transcript.js"]}
+  ]
+}

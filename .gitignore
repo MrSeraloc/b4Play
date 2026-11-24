@@ -1,0 +1,17 @@
+dist/
+downloads/*
+!downloads/b4play-opera-0.4.4.zip
+!downloads/b4play-chrome-0.4.4.zip
+!downloads/b4play-opera-0.4.6.zip
+!downloads/b4play-chrome-0.4.6.zip
+!downloads/b4play-opera-0.4.7.zip
+!downloads/b4play-opera-0.1.0.zip
+!downloads/b4play-chrome-0.4.7.zip
+!downloads/b4play-chrome-0.1.0.zip
+!downloads/SHA256SUMS.txt
+node_modules/
+.env*
+.dev.vars*
+.wrangler/
+*.log
+*.tmp
