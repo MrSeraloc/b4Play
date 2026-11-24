@@ -6,6 +6,7 @@ const send = message => chrome.runtime.sendMessage(message);
 const compact = window.parent !== window;
 if (compact) {
   document.body.classList.add('compact-settings');
+  if (new URLSearchParams(location.search).get('theme') === 'dark') document.documentElement.classList.add('dark');
   $('compact-actions').hidden = false;
   for (const id of ['import-details', 'settings-footer']) $(id).hidden = true;
   $('done').addEventListener('click', () => void send({type: 'CLOSE_COMPACT_SETTINGS'}));

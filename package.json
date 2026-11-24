@@ -1,5 +1,5 @@
 {
-  "name": "b4play", "version": "0.1.0", "private": true,
+  "name": "b4play", "version": "0.1.1", "private": true,
   "type": "module", "license": "MIT",
   "description": "Bilingual YouTube transcript summaries using AI.",
   "repository": {"type": "git", "url": "https://github.com/MrSeraloc/b4Play.git"},

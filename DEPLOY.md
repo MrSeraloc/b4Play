@@ -1,4 +1,4 @@
-# Publicar o b4Play 0.1.0
+# Publicar o b4Play 0.1.1
 
 O mantenedor publica um Cloudflare Worker e guarda nele uma única chave do OpenRouter. Os pacotes para Chrome e Opera só incluem o endereço público do Worker. Quem instalar a extensão precisa aceitar o envio de dados e permitir a conexão com esse endereço.
 
